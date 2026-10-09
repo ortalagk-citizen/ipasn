@@ -6,8 +6,10 @@ import { Menu2Dashboard } from './components/Menu2Dashboard';
 import { Menu3Daftar } from './components/Menu3Daftar';
 import { Menu4RekapBelum } from './components/Menu4RekapBelum';
 import { SheetsModal } from './components/SheetsModal';
+import { KemenagLogo } from './components/KemenagLogo';
 import { 
   fetchSpreadsheetData, 
+  submitData,
   saveOrUpdateRecordViaWebhook, 
   SyncStatus,
   SPREADSHEET_ID,
@@ -74,9 +76,14 @@ export default function App() {
     showToast('Sinkronisasi data selesai!');
   };
 
-  // Save/Update ASN record via Webhook (triggered from Menu 1)
-  const handleSaveRecord = async (record: ASNRecord): Promise<boolean> => {
-    const res = await saveOrUpdateRecordViaWebhook(record);
+  // Save/Update ASN record via Webhook with file upload and link bukti
+  const handleSaveRecord = async (
+    record: ASNRecord,
+    file?: File | null,
+    linkBukti?: string,
+    onProgress?: (msg: string) => void
+  ): Promise<boolean> => {
+    const res = await submitData(record, file, linkBukti, onProgress);
     setAsnList(res.updatedData);
     setSelectedNip(record.nip);
     showToast(res.message, res.success ? 'success' : 'error');
@@ -95,6 +102,22 @@ export default function App() {
   const handleNavigateToInput = (nip: string) => {
     setPreselectedInputNip(nip);
     setActiveMenu('input');
+  };
+
+  // Callback when searching NIP discovers an existing/updated record from server
+  const handleRecordFound = (foundRecord: ASNRecord) => {
+    setAsnList((prev) => {
+      const idx = prev.findIndex((a) => a.nip === foundRecord.nip);
+      if (idx >= 0) {
+        const next = [...prev];
+        next[idx] = { ...next[idx], ...foundRecord };
+        return next;
+      }
+      return [foundRecord, ...prev];
+    });
+    if (foundRecord.status === 'Sudah' && foundRecord.totalIP > 0) {
+      setSelectedNip(foundRecord.nip);
+    }
   };
 
   const totalSudah = asnList.filter((a) => a.status === 'Sudah' && a.totalIP > 0).length;
@@ -160,6 +183,7 @@ export default function App() {
                 asnList={asnList}
                 onSaveRecord={handleSaveRecord}
                 onNavigateToDashboard={handleNavigateToDashboard}
+                onRecordFound={handleRecordFound}
                 preselectedNip={preselectedInputNip}
               />
             )}
@@ -194,10 +218,8 @@ export default function App() {
       {/* Footer */}
       <footer className="w-full glass-nav border-t border-emerald-900/10 py-6 mt-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <div className="flex items-center space-x-2">
-            <div className="w-6 h-6 rounded-lg bg-[#006640] flex items-center justify-center text-amber-300 text-xs font-black ring-1 ring-[#D4AF37]">
-              GK
-            </div>
+          <div className="flex items-center space-x-2.5">
+            <KemenagLogo size={24} />
             <div>
               <span className="font-bold text-slate-800">
                 IP-ASN Kankemenag Kab. Gunungkidul

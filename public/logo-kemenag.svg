@@ -1,0 +1,276 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1060" width="100%" height="100%">
+  <defs>
+    <!-- Filter for crisp rendering -->
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.15" />
+    </filter>
+  </defs>
+
+  <!-- PERISAI SEGI LIMA LUAR (BORDER EMAS/KUNING TEBAL) -->
+  <polygon
+    points="500,20 985,385 805,1020 195,1020 15,385"
+    fill="#FFD200"
+    stroke="#103820"
+    stroke-width="8"
+    stroke-linejoin="miter"
+  />
+
+  <!-- PERISAI SEGI LIMA DALAM (WARNA HIJAU RESMI KEMENAG) -->
+  <polygon
+    points="500,80 920,398 765,955 235,955 80,398"
+    fill="#0B5A36"
+    stroke="#063820"
+    stroke-width="5"
+    stroke-linejoin="miter"
+  />
+
+  <!-- 1. BINTANG KUNING EMAS SUDUT LIMA (ATAS TENGAH) -->
+  <polygon
+    points="500,185 542,310 675,310 568,390 608,515 500,438 392,515 432,390 325,310 458,310"
+    fill="#F5B224"
+    stroke="#9E6B0A"
+    stroke-width="3"
+    stroke-linejoin="round"
+    transform="translate(0, -10) scale(0.65) translate(270, 70)"
+  />
+
+  <!-- 2. TANGKAI PADI KANAN (17 BUTIR PADI EMAS KEMENAG) -->
+  <g fill="#ECA227" stroke="#9A630A" stroke-width="2.5" stroke-linejoin="round">
+    <!-- Butir padi melengkung dari atas ke bawah -->
+    <path d="M545,290 C590,290 625,315 625,315 C625,315 590,325 555,305 Z" />
+    <path d="M580,305 C635,305 670,335 670,335 C670,335 630,348 595,325 Z" />
+    <path d="M610,325 C675,325 710,360 710,360 C710,360 670,375 630,350 Z" />
+    <path d="M640,355 C710,355 745,395 745,395 C745,395 700,410 660,380 Z" />
+    <path d="M665,390 C740,395 775,440 775,440 C775,440 725,455 680,420 Z" />
+    <path d="M685,430 C760,440 792,490 792,490 C792,490 740,505 695,465 Z" />
+    <path d="M700,475 C770,490 800,545 800,545 C800,545 745,555 705,510 Z" />
+    <path d="M708,525 C772,545 798,605 798,605 C798,605 740,610 705,560 Z" />
+    <path d="M705,575 C765,600 788,665 788,665 C788,665 730,665 695,610 Z" />
+    <path d="M695,625 C750,655 770,720 770,720 C770,720 715,715 680,660 Z" />
+    <path d="M675,675 C725,710 740,775 740,775 C740,775 690,760 660,705 Z" />
+    <path d="M650,725 C695,760 705,820 705,820 C705,820 660,795 630,745 Z" />
+    <path d="M615,765 C655,800 660,855 660,855 C660,855 620,825 595,780 Z" />
+
+    <!-- Batang padi utama -->
+    <path
+      d="M545,290 Q780,430 675,800"
+      fill="none"
+      stroke="#CAA028"
+      stroke-width="9"
+      stroke-linecap="round"
+    />
+  </g>
+
+  <!-- 3. TANGKAI KAPAS KIRI (8 KUNTUM BUNGA KAPAS PUTIH BERKELOPAK) -->
+  <g>
+    <!-- Batang kapas hijau melengkung -->
+    <path
+      d="M455,290 Q220,430 325,800"
+      fill="none"
+      stroke="#357D42"
+      stroke-width="10"
+      stroke-linecap="round"
+    />
+
+    <!-- Kelopak dan Bunga Kapas Putih (Lingkaran-lingkaran kelopak putih) -->
+    <!-- Bunga 1 (Paling atas) -->
+    <g transform="translate(425, 290)">
+      <circle cx="0" cy="0" r="14" fill="#FFFFFF" stroke="#063820" stroke-width="2" />
+      <circle cx="-12" cy="-6" r="11" fill="#FFFFFF" stroke="#063820" stroke-width="2" />
+      <circle cx="12" cy="-6" r="11" fill="#FFFFFF" stroke="#063820" stroke-width="2" />
+      <circle cx="-8" cy="11" r="11" fill="#FFFFFF" stroke="#063820" stroke-width="2" />
+      <circle cx="8" cy="11" r="11" fill="#FFFFFF" stroke="#063820" stroke-width="2" />
+      <polygon points="0,-1 -5,7 5,7" fill="#357D42" />
+    </g>
+
+    <!-- Bunga 2 -->
+    <g transform="translate(370, 315)">
+      <circle cx="0" cy="0" r="16" fill="#FFFFFF" stroke="#063820" stroke-width="2" />
+      <circle cx="-14" cy="-7" r="12" fill="#FFFFFF" stroke="#063820" stroke-width="2" />
+      <circle cx="14" cy="-7" r="12" fill="#FFFFFF" stroke="#063820" stroke-width="2" />
+      <circle cx="-9" cy="13" r="12" fill="#FFFFFF" stroke="#063820" stroke-width="2" />
+      <circle cx="9" cy="13" r="12" fill="#FFFFFF" stroke="#063820" stroke-width="2" />
+      <polygon points="0,-2 -6,8 6,8" fill="#357D42" />
+    </g>
+
+    <!-- Bunga 3 -->
+    <g transform="translate(320, 355)">
+      <circle cx="0" cy="0" r="18" fill="#FFFFFF" stroke="#063820" stroke-width="2" />
+      <circle cx="-15" cy="-8" r="13" fill="#FFFFFF" stroke="#063820" stroke-width="2" />
+      <circle cx="15" cy="-8" r="13" fill="#FFFFFF" stroke="#063820" stroke-width="2" />
+      <circle cx="-10" cy="15" r="13" fill="#FFFFFF" stroke="#063820" stroke-width="2" />
+      <circle cx="10" cy="15" r="13" fill="#FFFFFF" stroke="#063820" stroke-width="2" />
+      <polygon points="0,-2 -7,10 7,10" fill="#357D42" />
+    </g>
+
+    <!-- Bunga 4 -->
+    <g transform="translate(275, 415)">
+      <circle cx="0" cy="0" r="20" fill="#FFFFFF" stroke="#063820" stroke-width="2" />
+      <circle cx="-17" cy="-9" r="15" fill="#FFFFFF" stroke="#063820" stroke-width="2" />
+      <circle cx="17" cy="-9" r="15" fill="#FFFFFF" stroke="#063820" stroke-width="2" />
+      <circle cx="-11" cy="17" r="15" fill="#FFFFFF" stroke="#063820" stroke-width="2" />
+      <circle cx="11" cy="17" r="15" fill="#FFFFFF" stroke="#063820" stroke-width="2" />
+      <polygon points="0,-2 -8,11 8,11" fill="#357D42" />
+    </g>
+
+    <!-- Bunga 5 -->
+    <g transform="translate(240, 485)">
+      <circle cx="0" cy="0" r="21" fill="#FFFFFF" stroke="#063820" stroke-width="2" />
+      <circle cx="-18" cy="-9" r="15" fill="#FFFFFF" stroke="#063820" stroke-width="2" />
+      <circle cx="18" cy="-9" r="15" fill="#FFFFFF" stroke="#063820" stroke-width="2" />
+      <circle cx="-12" cy="18" r="15" fill="#FFFFFF" stroke="#063820" stroke-width="2" />
+      <circle cx="12" cy="18" r="15" fill="#FFFFFF" stroke="#063820" stroke-width="2" />
+      <polygon points="0,-2 -8,12 8,12" fill="#357D42" />
+    </g>
+
+    <!-- Bunga 6 -->
+    <g transform="translate(225, 565)">
+      <circle cx="0" cy="0" r="22" fill="#FFFFFF" stroke="#063820" stroke-width="2" />
+      <circle cx="-19" cy="-10" r="16" fill="#FFFFFF" stroke="#063820" stroke-width="2" />
+      <circle cx="19" cy="-10" r="16" fill="#FFFFFF" stroke="#063820" stroke-width="2" />
+      <circle cx="-13" cy="19" r="16" fill="#FFFFFF" stroke="#063820" stroke-width="2" />
+      <circle cx="13" cy="19" r="16" fill="#FFFFFF" stroke="#063820" stroke-width="2" />
+      <polygon points="0,-2 -9,12 9,12" fill="#357D42" />
+    </g>
+
+    <!-- Bunga 7 -->
+    <g transform="translate(228, 645)">
+      <circle cx="0" cy="0" r="21" fill="#FFFFFF" stroke="#063820" stroke-width="2" />
+      <circle cx="-18" cy="-9" r="15" fill="#FFFFFF" stroke="#063820" stroke-width="2" />
+      <circle cx="18" cy="-9" r="15" fill="#FFFFFF" stroke="#063820" stroke-width="2" />
+      <circle cx="-12" cy="18" r="15" fill="#FFFFFF" stroke="#063820" stroke-width="2" />
+      <circle cx="12" cy="18" r="15" fill="#FFFFFF" stroke="#063820" stroke-width="2" />
+      <polygon points="0,-2 -8,11 8,11" fill="#357D42" />
+    </g>
+
+    <!-- Bunga 8 (Paling bawah) -->
+    <g transform="translate(255, 725)">
+      <circle cx="0" cy="0" r="20" fill="#FFFFFF" stroke="#063820" stroke-width="2" />
+      <circle cx="-17" cy="-9" r="14" fill="#FFFFFF" stroke="#063820" stroke-width="2" />
+      <circle cx="17" cy="-9" r="14" fill="#FFFFFF" stroke="#063820" stroke-width="2" />
+      <circle cx="-11" cy="16" r="14" fill="#FFFFFF" stroke="#063820" stroke-width="2" />
+      <circle cx="11" cy="16" r="14" fill="#FFFFFF" stroke="#063820" stroke-width="2" />
+      <polygon points="0,-2 -8,10 8,10" fill="#357D42" />
+    </g>
+  </g>
+
+  <!-- 4. REHAL / TATAKAN AL-QUR'AN KAYU HITAM BERSILANG (X STAND) -->
+  <g>
+    <!-- Kaki Rehal Kiri-Bawah ke Kanan-Atas -->
+    <polygon
+      points="415,640 585,735 550,755 380,660"
+      fill="#181818"
+      stroke="#FFFFFF"
+      stroke-width="12"
+      stroke-linejoin="round"
+    />
+    <!-- Kaki Rehal Kanan-Bawah ke Kiri-Atas (Bersilang) -->
+    <polygon
+      points="585,640 415,735 450,755 620,660"
+      fill="#181818"
+      stroke="#FFFFFF"
+      stroke-width="12"
+      stroke-linejoin="round"
+    />
+  </g>
+
+  <!-- 5. KITAB SUCI TERBUKA (AL-QUR'AN KUNING EMAS KEMENAG) -->
+  <g>
+    <!-- Alas Cover Kitab Luar Hitam & Putih -->
+    <path
+      d="M375,605 L500,655 L625,605 L625,622 L500,672 L375,622 Z"
+      fill="#181818"
+      stroke="#000000"
+      stroke-width="3"
+    />
+    <path
+      d="M375,595 L500,645 L625,595 L625,607 L500,657 L375,607 Z"
+      fill="#FFFFFF"
+      stroke="#000000"
+      stroke-width="2"
+    />
+
+    <!-- Lembaran Kitab Terbuka Kuning Emas (Halaman Kiri & Kanan) -->
+    <!-- Halaman Kiri -->
+    <path
+      d="M375,590 C430,560 480,590 500,635 L500,480 C480,440 430,410 380,445 Z"
+      fill="#F6B828"
+      stroke="#000000"
+      stroke-width="4.5"
+    />
+    <!-- Lapisan Lembar Kiri Dalam -->
+    <path
+      d="M390,575 C435,552 475,578 495,618 L495,492 C475,455 435,430 395,458 Z"
+      fill="#FFD242"
+      stroke="#000000"
+      stroke-width="2"
+    />
+
+    <!-- Halaman Kanan -->
+    <path
+      d="M625,590 C570,560 520,590 500,635 L500,480 C520,440 570,410 620,445 Z"
+      fill="#F6B828"
+      stroke="#000000"
+      stroke-width="4.5"
+    />
+    <!-- Lapisan Lembar Kanan Dalam -->
+    <path
+      d="M610,575 C565,552 525,578 505,618 L505,492 C525,455 565,430 605,458 Z"
+      fill="#FFD242"
+      stroke="#000000"
+      stroke-width="2"
+    />
+
+    <!-- Garis Ayat Kitab Suci Bergelombang (Tulisan Hitam Khas Logo Kemenag) -->
+    <!-- Halaman Kiri -->
+    <path d="M435,480 C445,475 455,483 468,478" fill="none" stroke="#000000" stroke-width="3" stroke-linecap="round" />
+    <path d="M425,502 C440,497 455,505 475,500" fill="none" stroke="#000000" stroke-width="3.5" stroke-linecap="round" />
+    <path d="M420,524 C438,519 452,527 478,522" fill="none" stroke="#000000" stroke-width="3.5" stroke-linecap="round" />
+    <path d="M415,546 C435,541 450,549 475,544" fill="none" stroke="#000000" stroke-width="3" stroke-linecap="round" />
+
+    <!-- Halaman Kanan -->
+    <path d="M532,478 C545,483 555,475 565,480" fill="none" stroke="#000000" stroke-width="3" stroke-linecap="round" />
+    <path d="M525,500 C545,505 560,497 575,502" fill="none" stroke="#000000" stroke-width="3.5" stroke-linecap="round" />
+    <path d="M522,522 C548,527 562,519 580,524" fill="none" stroke="#000000" stroke-width="3.5" stroke-linecap="round" />
+    <path d="M525,544 C550,549 565,541 585,546" fill="none" stroke="#000000" stroke-width="3" stroke-linecap="round" />
+  </g>
+
+  <!-- 6. PITA PUTIH MELENGKUNG DENGAN TULISAN "IKHLAS BERAMAL" -->
+  <g>
+    <!-- Lipatan Pita Kiri & Kanan Belakang (3D Shadow) -->
+    <polygon points="175,765 295,780 265,850 185,845" fill="#FFFFFF" stroke="#000000" stroke-width="6" />
+    <polygon points="175,765 235,772 185,845" fill="#094A2D" />
+
+    <polygon points="825,765 705,780 735,850 815,845" fill="#FFFFFF" stroke="#000000" stroke-width="6" />
+    <polygon points="825,765 765,772 815,845" fill="#094A2D" />
+
+    <!-- Badan Pita Putih Depan Melengkung Anggun -->
+    <path
+      d="M265,800 C390,735 610,735 735,800 C680,885 320,885 265,800 Z"
+      fill="#FFFFFF"
+      stroke="#000000"
+      stroke-width="8"
+      stroke-linejoin="round"
+    />
+
+    <!-- Jalur Teks Busur untuk Tulisan IKHLAS BERAMAL -->
+    <path
+      id="textRibbonPath"
+      d="M285,840 C400,772 600,772 715,840"
+      fill="none"
+    />
+
+    <!-- Teks Resmi Tebal IKHLAS BERAMAL Melengkung -->
+    <text
+      font-family="'Arial Black', 'Impact', sans-serif"
+      font-size="62"
+      font-weight="900"
+      letter-spacing="5"
+      fill="#000000"
+    >
+      <textPath href="#textRibbonPath" startOffset="50%" text-anchor="middle">
+        IKHLAS BERAMAL
+      </textPath>
+    </text>
+  </g>
+</svg>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ASNRecord } from '../types';
-import { AlertTriangle, CheckCircle2, Database, X, Zap } from 'lucide-react';
-import { SHEET_NAME, getWebhookUrl } from '../services/sheetsService';
+import { AlertTriangle, CheckCircle2, X, Zap, Link2, FileImage } from 'lucide-react';
+import { SHEET_NAME } from '../services/sheetsService';
 
 interface ConfirmationModalProps {
   isOpen: boolean;
@@ -10,6 +10,9 @@ interface ConfirmationModalProps {
   record: ASNRecord;
   isUpdate: boolean;
   isSaving: boolean;
+  uploadStatusText?: string;
+  selectedFile?: File | null;
+  linkBukti?: string;
 }
 
 export const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
@@ -19,11 +22,14 @@ export const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
   record,
   isUpdate,
   isSaving,
+  uploadStatusText = 'Mengunggah file ke server...',
+  selectedFile,
+  linkBukti,
 }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-emerald-950/40 backdrop-blur-sm animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-emerald-950/45 backdrop-blur-sm animate-in fade-in duration-200">
       <div 
         className="w-full max-w-lg glass-card rounded-2xl p-6 sm:p-7 shadow-2xl border border-white/80 bg-white/95 relative animate-in zoom-in-95 duration-200"
         role="dialog"
@@ -32,7 +38,7 @@ export const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
         <button
           onClick={onClose}
           disabled={isSaving}
-          className="absolute top-4 right-4 p-1.5 text-slate-400 hover:text-slate-600 rounded-lg hover:bg-slate-100 transition-colors"
+          className="absolute top-4 right-4 p-1.5 text-slate-400 hover:text-slate-600 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer"
         >
           <X className="w-5 h-5" />
         </button>
@@ -46,7 +52,7 @@ export const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
               {isUpdate ? 'Konfirmasi Pembaruan Data IP ASN' : 'Konfirmasi Penyimpanan Data IP ASN'}
             </h3>
             <p className="text-xs text-slate-600 mt-0.5">
-              Mohon periksa rincian data sebelum dikirim ke Webhook Google Sheets.
+              Mohon periksa rincian nilai & bukti dukung sebelum dikirim ke server Webhook Google Sheets.
             </p>
           </div>
         </div>
@@ -90,6 +96,28 @@ export const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
           </div>
         </div>
 
+        {/* Bukti Dukung Information */}
+        {(linkBukti || selectedFile) && (
+          <div className="p-3 bg-amber-50/70 border border-amber-200 rounded-xl text-xs space-y-1.5 mb-4">
+            <span className="font-bold text-amber-950 block">Bukti Dukung yang Dilampirkan:</span>
+            {linkBukti && (
+              <div className="flex items-center gap-1.5 text-slate-700 truncate">
+                <Link2 className="w-3.5 h-3.5 text-emerald-700 shrink-0" />
+                <span className="truncate font-mono text-[11px]">{linkBukti}</span>
+              </div>
+            )}
+            {selectedFile && (
+              <div className="flex items-center gap-1.5 text-slate-700">
+                <FileImage className="w-3.5 h-3.5 text-amber-700 shrink-0" />
+                <span className="font-medium text-[11px] truncate">{selectedFile.name}</span>
+                <span className="text-[10px] text-slate-500 font-mono">
+                  ({(selectedFile.size / 1024).toFixed(1)} KB)
+                </span>
+              </div>
+            )}
+          </div>
+        )}
+
         {/* Destination & Integration target notice */}
         <div className="flex items-start space-x-2.5 p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-600 mb-5">
           <Zap className="w-4 h-4 text-amber-500 shrink-0 mt-0.5 fill-amber-500" />
@@ -101,13 +129,24 @@ export const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
           </div>
         </div>
 
+        {/* UI Loading Text saat mengunggah file ke server */}
+        {isSaving && (
+          <div className="p-3.5 mb-4 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-950 flex items-center space-x-3 animate-pulse">
+            <span className="w-5 h-5 border-2 border-emerald-700 border-t-transparent rounded-full animate-spin shrink-0"></span>
+            <div>
+              <p className="text-xs font-bold text-emerald-900">{uploadStatusText}</p>
+              <p className="text-[11px] text-emerald-700">Mohon tunggu, proses transmisi data sedang berlangsung.</p>
+            </div>
+          </div>
+        )}
+
         {/* Buttons */}
         <div className="flex items-center justify-end space-x-3 pt-2">
           <button
             type="button"
             onClick={onClose}
             disabled={isSaving}
-            className="px-4 py-2 text-sm font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl transition-colors cursor-pointer"
+            className="px-4 py-2 text-sm font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl transition-colors cursor-pointer disabled:opacity-50"
           >
             Batal
           </button>
@@ -120,7 +159,7 @@ export const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
             {isSaving ? (
               <>
                 <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
-                <span>Mengirim ke Webhook...</span>
+                <span>{uploadStatusText}</span>
               </>
             ) : (
               <>

@@ -64,9 +64,6 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
                   Sistem Informasi Indeks Profesionalitas ASN
                   <span className="w-2 h-2 rounded-full bg-orange-500 inline-block"></span>
                 </p>
-                <p className="text-xs sm:text-sm font-extrabold text-[#006640] tracking-wide">
-                  Visualisasi 3D WebGL Modern
-                </p>
               </div>
             </div>
           </div>

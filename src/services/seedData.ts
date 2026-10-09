@@ -2,6 +2,24 @@ import { ASNRecord } from '../types';
 
 export const INITIAL_ASN_DATA: ASNRecord[] = [
   {
+    nip: '197908162011011005',
+    nama: 'R. AHMAD KURNIA ANSHORUDIN, S.Kom',
+    golongan: 'III/d',
+    jabatan: 'Pranata Komputer Ahli Pertama Subbagian Tata Usaha Urusan Umum (Tim Pusat Data dan Informasi) Kantor Kementerian Agama Kabupaten Gunungkidul Daerah Istimewa Yogyakarta',
+    unitKerja: 'Subbagian Tata Usaha Kantor Kementerian Agama Kabupaten Gunungkidul Daerah Istimewa Yogyakarta',
+    kualifikasi: 15,
+    kompetensi: 30,
+    kinerja: 25,
+    disiplin: 5,
+    totalIP: 75,
+    status: 'Sudah',
+    lastUpdated: '2026-10-08 18:30',
+    kualifikasiDetail: 'S1 Ilmu Komputer / Teknik Informatika (15)',
+    kompetensiDetail: 'Pelatihan Fungsional & Teknis TI (30)',
+    kinerjaDetail: 'Predikat SKP Baik (25)',
+    disiplinDetail: 'Tidak pernah dijatuhi hukuman disiplin (5)',
+  },
+  {
     nip: '197508121999031002',
     nama: 'Drs. H. Sa’ban Nuroni, M.A.',
     unitKerja: 'Subbag Tata Usaha',

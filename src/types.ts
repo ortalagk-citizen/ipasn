@@ -18,6 +18,10 @@ export interface ASNRecord {
   kompetensiDetail?: string;
   kinerjaDetail?: string;
   disiplinDetail?: string;
+  link_bukti?: string;
+  file_name?: string;
+  file_mime?: string;
+  file_base64?: string;
 }
 
 export interface UnitKerjaRekap {
@@ -44,4 +48,18 @@ export interface FormIPASN {
   kompetensiOpsi?: string[];
   kinerjaOpsi?: string;
   disiplinOpsi?: string;
+  link_bukti?: string;
+}
+
+export interface SubmitIPASNPayload {
+  action: 'simpan_atau_update';
+  nip: string;
+  kualifikasi: number;
+  kompetensi: number;
+  kinerja: number;
+  disiplin: number;
+  file_base64?: string;
+  file_name?: string;
+  file_mime?: string;
+  link_bukti?: string;
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { ActiveMenu } from '../types';
+import { KemenagLogo } from './KemenagLogo';
 import { 
   FileEdit, 
   BarChart3, 
@@ -64,32 +65,17 @@ export const Navbar: React.FC<NavbarProps> = ({
         {/* Top bar with branding and database webhook status */}
         <div className="flex items-center justify-between py-3 border-b border-emerald-900/10">
           <div className="flex items-center space-x-3.5">
-            {/* Logo Kemenag Shield */}
-            <div className="relative flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br from-[#006640] to-[#024B30] text-amber-300 shadow-md shadow-emerald-900/20 ring-2 ring-[#D4AF37]/50">
-              <svg
-                viewBox="0 0 48 48"
-                className="w-7 h-7 fill-current drop-shadow"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="24" cy="24" r="22" fill="#006640" stroke="#D4AF37" strokeWidth="2" />
-                <path d="M24 8L30 18H18L24 8Z" fill="#D4AF37" />
-                <circle cx="24" cy="26" r="8" fill="none" stroke="#D4AF37" strokeWidth="2.5" />
-                <path
-                  d="M16 38L24 33L32 38"
-                  stroke="#D4AF37"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                />
-                <circle cx="24" cy="26" r="3" fill="#D4AF37" />
-              </svg>
-              <div className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-amber-400 rounded-full border-2 border-white flex items-center justify-center">
-                <span className="w-1.5 h-1.5 bg-[#006640] rounded-full"></span>
-              </div>
+            {/* Logo Resmi Kemenag */}
+            <div className="relative flex items-center justify-center p-1 rounded-xl bg-white/95 shadow-sm border border-emerald-900/10">
+              <KemenagLogo size={38} />
             </div>
 
             <div>
               <div className="flex items-center space-x-2">
-                <h1 className="text-lg font-black tracking-tight text-emerald-950 font-sans">
+                <h1 
+                  style={{ fontSize: '18px' }}
+                  className="font-black tracking-tight text-emerald-950 font-sans"
+                >
                   IP-ASN Gunungkidul
                 </h1>
                 <span className="px-2 py-0.5 text-[10px] font-bold tracking-wider uppercase bg-gradient-to-r from-amber-200 to-amber-300 text-amber-950 rounded-full border border-amber-400/60 shadow-xs">
@@ -152,12 +138,13 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* Navigation Tabs (Single Page Navigation tanpa reload) */}
         <div className="flex items-center space-x-1 sm:space-x-2 py-2.5 overflow-x-auto scrollbar-none">
-          {navItems.map((item) => {
+          {navItems.map((item, index) => {
             const isActive = activeMenu === item.id;
             return (
               <button
                 key={item.id}
                 onClick={() => setActiveMenu(item.id)}
+                style={index === 0 ? { fontSize: '16px' } : undefined}
                 className={`relative flex items-center space-x-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all whitespace-nowrap cursor-pointer ${
                   isActive
                     ? 'bg-gradient-to-r from-[#006640] to-[#014d31] text-white shadow-md shadow-emerald-950/20 ring-1 ring-amber-300/40'

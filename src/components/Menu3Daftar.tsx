@@ -19,7 +19,8 @@ import {
   TrendingUp,
   Sparkles,
   Award,
-  Users
+  Users,
+  ExternalLink
 } from 'lucide-react';
 
 interface Menu3DaftarProps {
@@ -486,6 +487,17 @@ export const Menu3Daftar: React.FC<Menu3DaftarProps> = ({
                       {/* Aksi */}
                       <td className="py-3 px-4 text-center">
                         <div className="flex items-center justify-center space-x-1.5">
+                          {record.link_bukti && (
+                            <a
+                              href={record.link_bukti}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              title={`Buka Bukti Dukung: ${record.link_bukti}`}
+                              className="p-1.5 text-sky-700 hover:text-white hover:bg-sky-600 rounded-lg transition-colors cursor-pointer"
+                            >
+                              <ExternalLink className="w-4 h-4" />
+                            </a>
+                          )}
                           <button
                             onClick={() => onViewInDashboard(record.nip)}
                             title="Tampilkan di Dashboard Visual 3D"
