@@ -1,0 +1,8 @@
+{
+  "name": "IP-ASN Kankemenag Kab. Gunungkidul",
+  "description": "Indeks Profesionalitas ASN Kantor Kementerian Agama Kabupaten Gunungkidul",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
